@@ -1,0 +1,134 @@
+[
+    {
+        "inputs": [],
+        "name": "getCurrentEraId",
+        "outputs": [
+            {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getStashAccounts",
+        "outputs": [
+            {
+                "internalType": "bytes32[]",
+                "name": "",
+                "type": "bytes32[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_oracleMember",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "_stash",
+                "type": "bytes32"
+            }
+        ],
+        "name": "isReportedLastEra",
+        "outputs": [
+            {
+                "internalType": "uint64",
+                "name": "",
+                "type": "uint64"
+            },
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint64",
+                "name": "_eraId",
+                "type": "uint64"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "bytes32",
+                        "name": "stashAccount",
+                        "type": "bytes32"
+                    },
+                    {
+                        "internalType": "bytes32",
+                        "name": "controllerAccount",
+                        "type": "bytes32"
+                    },
+                    {
+                        "internalType": "enum Types.LedgerStatus",
+                        "name": "stakeStatus",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint128",
+                        "name": "activeBalance",
+                        "type": "uint128"
+                    },
+                    {
+                        "internalType": "uint128",
+                        "name": "totalBalance",
+                        "type": "uint128"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint128",
+                                "name": "balance",
+                                "type": "uint128"
+                            },
+                            {
+                                "internalType": "uint64",
+                                "name": "era",
+                                "type": "uint64"
+                            }
+                        ],
+                        "internalType": "struct Types.UnlockingChunk[]",
+                        "name": "unlocking",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "internalType": "uint32[]",
+                        "name": "claimedRewards",
+                        "type": "uint32[]"
+                    },
+                    {
+                        "internalType": "uint128",
+                        "name": "stashBalance",
+                        "type": "uint128"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "slashingSpans",
+                        "type": "uint32"
+                    }
+                ],
+                "internalType": "struct Types.OracleData",
+                "name": "_report",
+                "type": "tuple"
+            }
+        ],
+        "name": "reportRelay",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]

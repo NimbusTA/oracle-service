@@ -1,0 +1,32 @@
+name: Python package
+
+on: [push]
+
+jobs:
+  lint-test:
+    name: Python linter
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.9]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        sudo apt-get install python3-dev python3-virtualenv
+        python -m pip install --upgrade pip
+        pip install -r requirements-dev.txt
+    - name: Lint with pylint
+      run: |
+        pylint \
+          --max-line-length=127 \
+          --disable=too-many-instance-attributes,too-many-statements,too-few-public-methods,unused-argument \
+          --disable=invalid-name,broad-exception-caught \
+          --exit-zero \
+          --recursive true \
+          oracle/
